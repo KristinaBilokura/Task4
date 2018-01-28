@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hide element</title>
+</head>
+<body>
+    <p id="hide_text">Kiev is the capital of Ukraine</p>
+    <button onclick="hide_text()">Hide text</button>
+    <button onclick="hide_button(this)">Hide button</button>
+    <ul>
+        <li>Some text 1<button onclick="remove(this)">Remove this line</button></li>
+        <li>Some text 2<button onclick="remove(this)">Remove this line</button></li>
+        <li>Some text 3<button onclick="remove(this)">Remove this line</button></li>
+    </ul>   
+    <script>
+        // 1. При кліку на кнопку - сховати текст.
+        // 2. При кліку на кнопку ховати/показувати текст.
+        // Створити кнопку, яка сама себе ховає при кліку.
+        function hide_text(){
+	       var text = document.getElementById("hide_text");
+	       text.hidden = !text.hidden;
+        }
+        function hide_button(button){
+	       button.hidden =true;
+        }
+        //При клыку на кнопку - видаляти рядок.
+        //Зробити універсальний спочіб, який не залежить від кількості рядків
+        function remove(line){
+	       line.parentElement.remove();
+        }
+    </script>
+
+</body>
+</html>

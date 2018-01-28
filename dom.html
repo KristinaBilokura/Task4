@@ -1,0 +1,28 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>JS Homework 2: querySelector, date, timeout</title>
+</head>
+<body >
+  <h1>World time</h1>
+  <ul>
+    <li data-location="london" offset=0>London - <span class="time">null</span></li>
+    <li data-location="kiev" offset=2>Kiev - <span class="time">null</span></li>
+    <li data-location="warshawa" offset=1>Warshawa - <span class="time">null</span></li>
+    <li data-location="los angeles" offset=-8>Los Angeles - <span class="time">null</span></li>
+    <li data-location="new york" offset=-5>New York - <span class="time">null</span></li>
+  </ul>
+<script>
+    function timedate(){
+        document.querySelectorAll("li").forEach(function(city){
+            var worldtime = new Date();
+            worldtime.setHours(worldtime.getUTCHours()+ +city.getAttribute('offset'));
+            city.getElementsByClassName("time")[0].innerHTML=worldtime.toLocaleDateString() + " - " + worldtime.toLocaleTimeString();
+        });
+        
+    }
+    timedate();
+
+</script>
+</body>
+</html>
